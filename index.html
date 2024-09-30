@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<span style="color: transparent; background-color: black;">QWxmYXogSW5mb3NlYw==</span>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page Finder</title>
+    <style>
+        body {
+            background-color: #000000;
+            color: #00FF00;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            padding: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 70%;
+            margin: 20px auto;
+            box-shadow: 0 0 20px #00FF00, 0 0 10px #00FF00;
+        }
+
+        th, td {
+            border: 1px solid #00FF00;
+            padding: 10px;
+            color: #00FF00;
+        }
+
+        th {
+            background-color: #003300;
+            font-size: 20px;
+        }
+
+        td {
+            background-color: #001a00;
+            font-size: 18px;
+        }
+
+        tr:hover {
+            background-color: #003300;
+        }
+
+        input[type="text"], input[type="submit"] {
+            background-color: #001a00;
+            color: #00FF00;
+            border: 2px solid #00FF00;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            width: 80%;
+            box-shadow: 0 0 10px #00FF00, 0 0 5px #00FF00;
+        }
+
+        input[type="submit"] {
+            cursor: pointer;
+            width: 40%;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #003300;
+            box-shadow: 0 0 20px #00FF00, 0 0 10px #00FF00;
+        }
+
+        h1 {
+            color: #00FF00;
+            text-shadow: 0 0 10px #00FF00;
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #FF0000;
+            font-size: 25px;
+            font-family: 'Comic Sans MS', cursive;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 5px 0;
+            color: #00FF00;
+        }
+
+        li a {
+            color: #00FF00;
+            text-decoration: none;
+        }
+
+        li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Admin Page Finder</h1>
+    <h2>Developed By: <span>Alfaz</span></h2>
+
+    <form method="POST">
+        <label for="base_url">Enter URL Here:</label><br>
+        <input type="text" id="base_url" name="base_url" placeholder="Exampl:https://www.example.com/admin/">
+        <br>
+        <input type="submit" name="go" value="Search">
+    </form>
+
+    <?php 
+    if (isset($_POST['base_url'])) {
+        $base_url = $_POST['base_url'];
+
+        // Common admin page paths to check
+        $admin_pages = array(
+            'admin/',
+            'admin/index.php',
+            'admin/login.php',
+            'admin/dashboard.php',
+              'addproduct.php',
+            'user.php',
+            'addpage.php',
+            'add.php',
+            'new.php',
+            'about.php',
+            'gallery.php',
+            'adminuser.php',
+            'image.php',
+            'news.php',
+            'productadd.php',
+            'addadmin.php',
+            'admin.php',
+            'index.php',
+            'dashboard1.php',
+            'menu.php',
+            'home.php',
+            'add_admin.php',
+            'addnews.php',
+            'addforum.php',
+            'addpost.php',
+            'addforum.php',
+            'addgame.php',
+            'addblog.php',
+            'admin_detail.php',
+            'profile.php',
+            'addarticle.php',
+            'addfile.php',
+            'addshow.php',
+            'addmember.php',
+            'addstory.php',
+            'addinfo.php',
+            'addcat.php',
+            'productshow.php',
+            'cp.php',
+            'addjob.php',
+            'viewproduct.php',
+            'addaccount.php',
+            'manage.php',
+            'addcontact.php',
+            'order.php',
+            'viewmanager.php',
+            'addschool.php',
+            'addproject.php',
+            'addvideo.php',
+            'addphoto.php',
+            'addsale.php',
+            'addcompany.php',
+            'payment.php',
+            'emp.php',
+            'addmovie.php',
+            'addpassword.php',
+            'students.php',
+            'add_new_students.php',
+            'addemployee.php',
+            'addcat.php',
+            'admin.php',
+            'admincp.php',
+            'settings.php',
+            'addstate.php',
+            'addcountry.php',
+            'addmedia.php',
+            'addcode.php',
+            'addlinks.php',
+            'addcity.php',
+            'product_add.php',
+            'additem.php',
+            'addstore.php',
+            'acceso.php',
+            'account.html',
+            'admloginuser.asp',
+            'add_banner.php',
+            'AdminHome.php',
+            'AdminDashboard.php',
+            'login.asp',
+            'index1.php',
+            'login.php',
+            'banner.php',
+            'admin.asp',
+            'admincontrol.html',
+            'category.php',
+            'admin/control_pages/admin_home.php',
+            'admin_home.php',
+            'admin/dashboard/index.php',
+            'admin/dash.php',
+            'dash.php',
+            'administrator',
+            'account.asp',
+            'list_gallery.php',
+            'pages/home_admin.php',
+            'page_management.php',
+            'overview.php',
+            'viewmembers.php',
+            'add-slider.php',
+            'add-room.php',
+            'admin_login.asp',
+            'adminLogin.html',
+            'admin-login.html',
+            'admin-login.php',
+
+        );
+
+        // Display results
+        echo "<h2>Results for: " . htmlspecialchars($base_url) . "</h2>";
+        echo "<ul>";
+
+        foreach ($admin_pages as $page) {
+            $full_url = $base_url . $page;
+            $headers = @get_headers($full_url);
+
+            if ($headers && strpos($headers[0], '200')) {
+                echo "<li><a href='" . $full_url . "' target='_blank'>" . $full_url . "</a> - Found</li>";
+            } else {
+                echo "<li>" . $full_url . " - Not Found</li>";
+            }
+        }
+
+        echo "</ul>";
+    }
+    ?>
+
+</body>
+</html>
+
