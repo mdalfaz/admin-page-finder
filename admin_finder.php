@@ -6,7 +6,7 @@ if (isset($_POST['base_url'])) {
 
     $admin_pages = file('path.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
-    // HTML স্টাইল
+    // HTML 
     echo "<html><head><title>Admin Page Finder</title>
     <style>
         body {
